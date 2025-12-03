@@ -53,12 +53,14 @@ export const MOCK_POSTS: Post[] = [
 
 **1. 花一个下午生成完整项目包（8个章节）：**
 
-| 章节 | 内容 | 价值 |
-| :--- | :--- | :--- |
-| **CH1-2** | 需求定义、痛点梳理 + 传统工作流分析 | 快速对齐团队认知，降低认知熵 |
-| **CH3** | 架构设计（Hand层+Brain层+UI层） | 痛点→解决方案→角色分配的完整链路 |
-| **CH4** | Evals/Quality Gate定义 | 项目启动就建立质量意识（CMDE评估准备）|
-| **CH5-7** | 任务清单 + 会议记录模板 + 权限开放 | 执行层面的操作规范 |
+*   **CH1-2**: 需求定义、痛点梳理 + 传统工作流分析
+    *   *价值*: 快速对齐团队认知，降低认知熵
+*   **CH3**: 架构设计（设计hand层处理数据 + Brian层输出生成式内容 + UI层串联实现H in the loop） + 模块分工
+    *   *价值*: 痛点→解决方案→角色分配的完整链路
+*   **CH4**: Evals/Quality Gate定义
+    *   *价值*: 项目启动就建立质量意识（CMDE评估准备）
+*   **CH5-7**: 任务清单 + 会议记录模板 + 权限开放（SiemensCode、SharePoint、Team chat）
+    *   *价值*: 执行层面的操作规范
 
 **2. 带着项目原型和开发沟通**
 Hand包、Brain包可以先写一个带着业务流程的框架给到开发。直接定义清楚input、output流程、格式和我期待的颗粒度。
@@ -73,8 +75,8 @@ Hand包、Brain包可以先写一个带着业务流程的框架给到开发。�
 *   业务痛点被翻译成离开发者最近的实现逻辑
 *   文档既是"人类说明书"也是"AI prompt"，两端通用`,
     images: [
-      { url: 'https://placehold.co/800x600/334155/ffffff?text=Hand+Prototype', caption: 'Hand Prototype.png' },
-      { url: 'https://placehold.co/800x600/475569/ffffff?text=Brain+Prototype', caption: 'Brain Prototype.png' }
+      { url: 'https://placehold.co/800x600/e2e8f0/1e293b?text=Hand+Prototype', caption: 'Hand Prototype.png' },
+      { url: 'https://placehold.co/800x600/cbd5e1/1e293b?text=Brain+Prototype', caption: 'Brain Prototype.png' }
     ],
     takeaway: "写AI和人都看得懂的文档。PRD不是给PM自己看的，是给\"全栈\"看的（人+AI）。用把业务逻辑、输入输入、项目预期和优化空间写Prototype。减少开发立即你需求的摩擦力。",
     reflection: "并行开发而非端到端交付；做好没有人看文档的准备。",
@@ -94,7 +96,8 @@ Hand包、Brain包可以先写一个带着业务流程的框架给到开发。�
 ### 实践案例：会议三段式流程
 
 **1. 会前准备**
-*   准备agenda，针对每个人准备具体讨论话题。
+*   准备agenda，相关文档邮件提前发送。
+*   针对每个人准备具体讨论话题。
 *   准备Memo清单（按模块和优先级）。
 
 **2. 会中执行**
@@ -111,11 +114,11 @@ Hand包、Brain包可以先写一个带着业务流程的框架给到开发。�
 *   宝贵的会议时间聚焦于"不确定问题的解决"，而非"公共信息的传递"。
 *   开发人员专注于核心功能，不被流程打扰。`,
     images: [
-      { url: 'https://placehold.co/800x500/1e293b/ffffff?text=Meeting+Prep+Memo', caption: '会前讨论.png' },
-      { url: 'https://placehold.co/800x500/334155/ffffff?text=Expert+Discussion', caption: '会议三-专家讨论.png' },
-      { url: 'https://placehold.co/800x500/475569/ffffff?text=Action+Memo', caption: '会议后action memo.png' }
+      { url: 'https://placehold.co/800x500/f1f5f9/1e293b?text=Meeting+Prep+Memo', caption: '会前讨论.png' },
+      { url: 'https://placehold.co/800x500/e2e8f0/1e293b?text=Expert+Discussion', caption: '会议三-专家讨论.png' },
+      { url: 'https://placehold.co/800x500/cbd5e1/1e293b?text=Action+Memo', caption: '会议后action memo.png' }
     ],
-    takeaway: "正确认识PoC会议：要利用宝贵的PoC会议时间来减少/解决模糊性。会前能被整理的清晰的信息不应该占用会议时间现场生成。最小化记录和誊写工作。",
+    takeaway: "正确认识PoC会议：要利用宝贵的PoC会议时间来减少/解决模糊性。会前能被整理的清晰的信息不应该占用会议时间现场生成。最小化记录和誊写工作：只准备一个输入源，但是设想好输出源的不同工具搭配。",
     reflection: "明确PM交叉属性的价值，而非大包大揽的兼顾：Brain层的框架搭建是可行高效的，但重复劳动没必要，一定要给开发留独立完整的设计空间。",
     author: 'Jianan Huang',
     authorAvatar: 'https://picsum.photos/seed/jianan/100/100'
@@ -148,9 +151,9 @@ Hand包、Brain包可以先写一个带着业务流程的框架给到开发。�
 *   技术探针验证可行性后再投入开发资源
 *   减少"做了才发现不对"的返工`,
     images: [
-       { url: 'https://placehold.co/800x600/e2e8f0/475569?text=Three+Layer+Logic', caption: '三层逻辑.png' },
-       { url: 'https://placehold.co/800x600/cbd5e1/475569?text=Change+Analysis', caption: 'Change.png' },
-       { url: 'https://placehold.co/800x600/94a3b8/ffffff?text=Communication', caption: 'image.png (Communication)' }
+       { url: 'https://placehold.co/800x600/f8fafc/1e293b?text=Three+Layer+Logic', caption: '三层逻辑.png' },
+       { url: 'https://placehold.co/800x600/f1f5f9/1e293b?text=Change+Analysis', caption: 'Change.png' },
+       { url: 'https://placehold.co/800x600/e2e8f0/1e293b?text=Communication', caption: 'image.png (Communication)' }
     ],
     takeaway: "PM要站在user视角看代码，站在开发视角看需求。做RLHF中的那个\"H\"。",
     author: 'Jianan Huang',
@@ -239,8 +242,8 @@ Hand包、Brain包可以先写一个带着业务流程的框架给到开发。�
 *   我最近一周用AI做了什么非常规操作？
 *   对我的工作学习带来什么效能提高？`,
     images: [
-      { url: 'https://placehold.co/800x600/2563eb/ffffff?text=Prime+Update', caption: 'Prime.png' },
-      { url: 'https://placehold.co/800x600/3b82f6/ffffff?text=5D+Table', caption: 'Prime2.0.png' }
+      { url: 'https://placehold.co/800x600/f8fafc/1e293b?text=Prime+Update', caption: 'Prime.png' },
+      { url: 'https://placehold.co/800x600/f1f5f9/1e293b?text=5D+Table', caption: 'Prime2.0.png' }
     ],
     takeaway: "Deep Dive into AI Tools. Make it a habit.",
     author: 'Jianan Huang',
@@ -295,7 +298,7 @@ Hand包、Brain包可以先写一个带着业务流程的框架给到开发。�
 *   建立个人方法论和工具箱(各类分享项目)
 *   形成可复制的项目打法(版本管理、上下文工程/PDR意识、前端设计、产品化思维)`,
     images: [
-      { url: 'https://placehold.co/800x500/0f172a/ffffff?text=KnowVis+Project', caption: 'KnowVis Project Screenshot' }
+      { url: 'https://placehold.co/800x500/f8fafc/1e293b?text=KnowVis+Project', caption: 'KnowVis Project Screenshot' }
     ],
     takeaway: "Ship it. From toy to tool.",
     links: [{ title: 'KnowVis Project', url: 'https://jianan-huang0609.github.io/KnowVis/Example.html' }],
@@ -323,7 +326,7 @@ Hand包、Brain包可以先写一个带着业务流程的框架给到开发。�
 *   最近一周有无线上Post/线下分享？
 *   有多少人因为我开始尝试AI工具？`,
     images: [
-      { url: 'https://placehold.co/800x500/4c1d95/ffffff?text=AI+Self+Starter', caption: 'AI_Self_Starter Screenshot' }
+      { url: 'https://placehold.co/800x500/f8fafc/1e293b?text=AI+Self+Starter', caption: 'AI_Self_Starter Screenshot' }
     ],
     takeaway: "Influence others. Be the bridge.",
     links: [{ title: 'AI Self Starter', url: 'https://ai-self-starter.vercel.app/' }],
