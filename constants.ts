@@ -1,9 +1,38 @@
 
 import { Post, Category } from './types';
 
-export const CATEGORIES: Category[] = ['All', 'PM Architecture', 'AI Cultivation'];
+export const CATEGORIES: Category[] = ['All', 'PM Architecture', 'AI Cultivation', 'Q&A'];
 
 export const MOCK_POSTS: Post[] = [
+  // --- HOME PAGE ---
+  {
+    id: 'home',
+    title: '论CER PoC项目的架构决策与研发效能管理',
+    date: 'Intro',
+    location: 'Overview',
+    category: 'Intro',
+    viewpoint: "在一个垂直领域，如何低成本基于敏捷开发实践AI解决方案",
+    content: "总结可能只适合PoC阶段的非产品软件小型项目开发。",
+    characteristics: [
+      {
+        label: "特点一",
+        description: "开发资源都是\"借来的\"，没有强制的owner authority，做好大家随时可能被主线项目召回的准备；"
+      },
+      {
+        label: "特点二",
+        description: "Deadline不可动，一个月的时间如何彼此快速进入协作模式，怎么让大家持续投入？"
+      },
+      {
+        label: "特点三",
+        description: "Fuzzy input、Fuzzy output、重专家反馈的Evals，功能架构的边界模糊。"
+      }
+    ],
+    images: [], // No images for home
+    takeaway: "",
+    author: 'Jianan Huang',
+    authorAvatar: 'https://picsum.photos/seed/jianan/100/100'
+  },
+
   // --- PART 1: PM Architecture (Steps 0-5) ---
   {
     id: 'step-0',
@@ -31,9 +60,10 @@ export const MOCK_POSTS: Post[] = [
 *   对结果导向的开发节奏有心理预期（能接受适度加班）
 *   项目启动时已建立信任基础，减少磨合成本`,
     images: [
-      { url: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop', caption: 'Networking & Team Building' }
+      { url: 'assets/Networking & Team Building.png', caption: 'Networking & Team Building' }
     ],
     takeaway: "项目未动，人脉先行。PM的第一个交付物不是文档，而是\"项目概念和个人名片，以争取团队向心信任\"。",
+    tradeoff: "Tradeoff: PoC阶段最大的风险不是具体的技术做不出来，而是中途断档。但若是成熟的Project Team，Networking可以更松弛地在日常相处中体现",
     author: 'Jianan Huang',
     authorAvatar: 'https://picsum.photos/seed/jianan/100/100'
   },
@@ -75,11 +105,12 @@ Hand包、Brain包可以先写一个带着业务流程的框架给到开发。�
 *   业务痛点被翻译成离开发者最近的实现逻辑
 *   文档既是"人类说明书"也是"AI prompt"，两端通用`,
     images: [
-      { url: 'https://placehold.co/800x600/e2e8f0/1e293b?text=Hand+Prototype', caption: 'Hand Prototype.png' },
-      { url: 'https://placehold.co/800x600/cbd5e1/1e293b?text=Brain+Prototype', caption: 'Brain Prototype.png' }
+      { url: 'assets/Hand Prototype.png', caption: 'Hand Prototype.png' },
+      { url: 'assets/Brain Prototype.png', caption: 'Brain Prototype.png' }
     ],
     takeaway: "写AI和人都看得懂的文档。PRD不是给PM自己看的，是给\"全栈\"看的（人+AI）。用把业务逻辑、输入输入、项目预期和优化空间写Prototype。减少开发立即你需求的摩擦力。",
-    reflection: "并行开发而非端到端交付；做好没有人看文档的准备。",
+    tradeoff: "但不适用的情况是：\n>如果需求高度不确定（变更率>50%），重文档反而是负担\n>如果团队是成熟团队（合作过3次以上），trust/Project experiences > documentation",
+    reflection: "**反思复盘**\n- **并行开发而非端到端交付，注意收敛自己pushy的紧凑感**\n- **做好没有人看文档的准备，意识到解释澄清在项目初期的重要性**\n- **时间资源充分的情况下，不会依赖翻译官的角色，直接请三方workshop明确需求**",
     author: 'Jianan Huang',
     authorAvatar: 'https://picsum.photos/seed/jianan/100/100'
   },
@@ -114,12 +145,12 @@ Hand包、Brain包可以先写一个带着业务流程的框架给到开发。�
 *   宝贵的会议时间聚焦于"不确定问题的解决"，而非"公共信息的传递"。
 *   开发人员专注于核心功能，不被流程打扰。`,
     images: [
-      { url: 'https://placehold.co/800x500/f1f5f9/1e293b?text=Meeting+Prep+Memo', caption: '会前讨论.png' },
-      { url: 'https://placehold.co/800x500/e2e8f0/1e293b?text=Expert+Discussion', caption: '会议三-专家讨论.png' },
-      { url: 'https://placehold.co/800x500/cbd5e1/1e293b?text=Action+Memo', caption: '会议后action memo.png' }
+      { url: 'assets/会前讨论.png', caption: '会前讨论.png' },
+      { url: 'assets/会议三-专家讨论.png', caption: '会议三-专家讨论.png' },
+      { url: 'assets/会议后action memo.png', caption: '会议后action memo.png' }
     ],
-    takeaway: "正确认识PoC会议：要利用宝贵的PoC会议时间来减少/解决模糊性。会前能被整理的清晰的信息不应该占用会议时间现场生成。最小化记录和誊写工作：只准备一个输入源，但是设想好输出源的不同工具搭配。",
-    reflection: "明确PM交叉属性的价值，而非大包大揽的兼顾：Brain层的框架搭建是可行高效的，但重复劳动没必要，一定要给开发留独立完整的设计空间。",
+    takeaway: "正确认识PoC会议：要利用宝贵的PoC会议时间来减少/解决模糊性。会前能被整理的清晰的信息不应该占用会议时间现场生成。最小化记录和誊写工作：只准备一个输入源，但是设想好输出源的不同工具搭配。比如从设计到开发到present：可以直接md-->xml/html-->Slides",
+    reflection: "**反思复盘**\n- **明确PM交叉属性的价值，而非大包大揽的兼顾**：Brain层的框架搭建是可行高效的，但重复劳动没必要，一定要给开发留独立完整的设计空间。\n- **确保成员对模块的ownership**：边界太清晰会遏制其他解法的可能性，Brainstorming类会议就不完全适用。",
     author: 'Jianan Huang',
     authorAvatar: 'https://picsum.photos/seed/jianan/100/100'
   },
@@ -151,11 +182,12 @@ Hand包、Brain包可以先写一个带着业务流程的框架给到开发。�
 *   技术探针验证可行性后再投入开发资源
 *   减少"做了才发现不对"的返工`,
     images: [
-       { url: 'https://placehold.co/800x600/f8fafc/1e293b?text=Three+Layer+Logic', caption: '三层逻辑.png' },
-       { url: 'https://placehold.co/800x600/f1f5f9/1e293b?text=Change+Analysis', caption: 'Change.png' },
-       { url: 'https://placehold.co/800x600/e2e8f0/1e293b?text=Communication', caption: 'image.png (Communication)' }
+       { url: 'assets/三层逻辑.png', caption: '三层逻辑.png' },
+       { url: 'assets/Change.png', caption: 'Change.png' },
+       { url: 'assets/image.png', caption: 'image.png (Communication)' }
     ],
     takeaway: "PM要站在user视角看代码，站在开发视角看需求。做RLHF中的那个\"H\"。",
+    tradeoff: "但是如果有更好/更资深的资源，PM可以直接引入翻译（请tech lead帮忙）",
     author: 'Jianan Huang',
     authorAvatar: 'https://picsum.photos/seed/jianan/100/100'
   },
@@ -184,6 +216,7 @@ Hand包、Brain包可以先写一个带着业务流程的框架给到开发。�
         { url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop', caption: 'Risk Monitoring & Radar' }
     ], 
     takeaway: "不是盯人，是盯系统健康度。",
+    tradeoff: "但是如果团队稳定性高，过度容错会有不信任感。",
     author: 'Jianan Huang',
     authorAvatar: 'https://picsum.photos/seed/jianan/100/100'
   },
@@ -242,8 +275,8 @@ Hand包、Brain包可以先写一个带着业务流程的框架给到开发。�
 *   我最近一周用AI做了什么非常规操作？
 *   对我的工作学习带来什么效能提高？`,
     images: [
-      { url: 'https://placehold.co/800x600/f8fafc/1e293b?text=Prime+Update', caption: 'Prime.png' },
-      { url: 'https://placehold.co/800x600/f1f5f9/1e293b?text=5D+Table', caption: 'Prime2.0.png' }
+      { url: 'assets/Prime.png', caption: 'Prime.png' },
+      { url: 'assets/Prime2.0.png', caption: 'Prime2.0.png' }
     ],
     takeaway: "Deep Dive into AI Tools. Make it a habit.",
     author: 'Jianan Huang',
@@ -330,6 +363,44 @@ Hand包、Brain包可以先写一个带着业务流程的框架给到开发。�
     ],
     takeaway: "Influence others. Be the bridge.",
     links: [{ title: 'AI Self Starter', url: 'https://ai-self-starter.vercel.app/' }],
+    author: 'Jianan Huang',
+    authorAvatar: 'https://picsum.photos/seed/jianan/100/100'
+  },
+  
+  // --- Q&A SECTION ---
+  {
+    id: 'qa',
+    title: 'Q&A & Thoughts',
+    date: 'Q&A',
+    location: 'Discussion',
+    category: 'Q&A',
+    viewpoint: "开放讨论：关于文档粒度、沟通效率与职责边界的思考。",
+    content: "以下是关于PoC项目管理中常见问题的思考。",
+    qaItems: [
+      {
+        topic: "关于文档",
+        questions: [
+            "你们更喜欢\"详细但长\"的PRD，还是\"简洁但可能要追问\"的Spec？",
+            "如果我写了伪代码，你们会觉得\"有帮助\"还是\"多余\"？"
+        ]
+      },
+      {
+        topic: "关于沟通",
+        questions: [
+            "这种\"会前会后双向闭环\"的方式，你们觉得效率高还是太繁琐？",
+            "如果你们希望PM少开会、多异步沟通，那什么信息适合异步、什么必须开会？"
+        ]
+      },
+      {
+        topic: "关于边界",
+        questions: [
+            "PM介入到\"技术探针验证\"这一步，你们觉得是\"帮忙\"还是\"越界\"？",
+            "如果觉得越界了，你们希望PM在哪里停下来？"
+        ]
+      }
+    ],
+    images: [],
+    takeaway: "Communication is the key.",
     author: 'Jianan Huang',
     authorAvatar: 'https://picsum.photos/seed/jianan/100/100'
   }

@@ -1,13 +1,14 @@
+
 import React, { useState } from 'react';
 import { Sidebar, SidebarBody, SidebarLink } from './ui/sidebar';
 import { Post, Category } from '../types';
-import { CATEGORIES } from '../constants';
 import { 
   Circle, 
   CircleDot,
   LayoutDashboard,
   BrainCircuit,
-  Settings2
+  Home,
+  MessageCircleQuestion,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -30,24 +31,16 @@ export function SidebarDemo({
 }: SidebarProps) {
   const [open, setOpen] = useState(false);
 
-  // Group posts based on category context, but for the links we might just list them
-  // Or better, show categories as top level links? 
-  // For this specific design, let's list the posts as the primary navigation items
-  // but grouped visually by category if possible, or just flat list if category is selected.
-
-  // To fit the Aceternity style, we'll map posts to links
-  const links = posts.map(post => ({
-    label: post.title,
-    href: "#",
-    onClick: () => onSelectPost(post),
-    icon: (
-      selectedPostId === post.id ? (
-        <CircleDot className="h-5 w-5 shrink-0 text-indigo-600 dark:text-indigo-400" />
-      ) : (
-        <Circle className="h-5 w-5 shrink-0 text-neutral-400 dark:text-neutral-500" />
-      )
-    ),
-  }));
+  // Separate posts into groups
+  const homePost = posts.find(p => p.category === 'Intro');
+  const qaPost = posts.find(p => p.category === 'Q&A');
+  
+  // Filter out Home and QA from the main list, and apply category filters if needed
+  const contentPosts = posts.filter(p => 
+    p.category !== 'Intro' && 
+    p.category !== 'Q&A' && 
+    (activeCategory === 'All' || activeCategory === p.category)
+  );
 
   return (
     <Sidebar open={open} setOpen={setOpen}>
@@ -55,40 +48,84 @@ export function SidebarDemo({
         <div className="flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
           {open ? <Logo /> : <LogoIcon />}
           
-          {/* Category Filters */}
-          <div className="mt-8 flex flex-col gap-2 mb-6">
+          {/* HOME LINK */}
+          {homePost && (
+             <div className="mt-8 mb-4">
+               <SidebarLink
+                  link={{
+                    label: "Home",
+                    href: "#",
+                    onClick: () => onSelectPost(homePost),
+                    icon: <Home className={`h-5 w-5 ${selectedPostId === homePost.id ? 'text-blue-600' : 'text-neutral-500'}`} />
+                  }}
+                  className={selectedPostId === homePost.id ? "bg-blue-50 dark:bg-blue-900/20 rounded-lg" : ""}
+               />
+             </div>
+          )}
+
+          {/* Category Filters (Modules) */}
+          <div className="flex flex-col gap-2 mb-6">
              <div className="px-2 text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-2">
-                {open && "Categories"}
+                {open && "Modules"}
              </div>
              <div className="flex flex-col gap-1">
-                {CATEGORIES.map(cat => (
-                  <SidebarLink 
-                    key={cat}
-                    link={{
-                      label: cat,
-                      href: "#",
-                      onClick: () => onSelectCategory(cat),
-                      icon: (
-                        cat === 'PM Architecture' ? <LayoutDashboard className={`h-5 w-5 ${activeCategory === cat ? 'text-indigo-500' : 'text-neutral-500'}`} /> :
-                        cat === 'AI Cultivation' ? <BrainCircuit className={`h-5 w-5 ${activeCategory === cat ? 'text-indigo-500' : 'text-neutral-500'}`} /> :
-                        <Settings2 className={`h-5 w-5 ${activeCategory === cat ? 'text-indigo-500' : 'text-neutral-500'}`} />
-                      )
-                    }}
-                    className={activeCategory === cat ? "bg-neutral-100 dark:bg-neutral-800 rounded-lg" : ""}
-                  />
-                ))}
+                {['PM Architecture', 'AI Cultivation', 'Q&A'].map(cat => {
+                  const isQA = cat === 'Q&A';
+                  // For Q&A, active state depends on if the QA post is selected.
+                  // For others, it depends on the active category filter.
+                  const isActive = isQA 
+                    ? (qaPost && selectedPostId === qaPost.id) 
+                    : activeCategory === cat;
+
+                  return (
+                    <SidebarLink 
+                      key={cat}
+                      link={{
+                        label: cat,
+                        href: "#",
+                        onClick: () => {
+                          if (isQA && qaPost) {
+                            onSelectPost(qaPost);
+                          } else {
+                            onSelectCategory(cat as Category);
+                          }
+                        },
+                        icon: (
+                          cat === 'PM Architecture' ? <LayoutDashboard className={`h-5 w-5 ${isActive ? 'text-blue-600' : 'text-neutral-500'}`} /> :
+                          cat === 'AI Cultivation' ? <BrainCircuit className={`h-5 w-5 ${isActive ? 'text-emerald-600' : 'text-neutral-500'}`} /> :
+                          <MessageCircleQuestion className={`h-5 w-5 ${isActive ? 'text-amber-600' : 'text-neutral-500'}`} />
+                        )
+                      }}
+                      className={isActive ? (isQA ? "bg-amber-50 dark:bg-amber-900/20 rounded-lg" : "bg-neutral-100 dark:bg-neutral-800 rounded-lg") : ""}
+                    />
+                  );
+                })}
              </div>
           </div>
 
           {/* Posts List */}
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 flex-1">
             <div className="px-2 text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-2">
-               {open && "Posts"}
+               {open && "Chapters"}
             </div>
-            {links.map((link, idx) => (
-              <SidebarLink key={idx} link={link} className={link.label === posts.find(p=>p.id===selectedPostId)?.title ? "bg-indigo-50 dark:bg-indigo-900/20 rounded-lg" : ""} />
+            {contentPosts.map((post, idx) => (
+              <SidebarLink 
+                key={idx} 
+                link={{
+                    label: post.title,
+                    href: "#",
+                    onClick: () => onSelectPost(post),
+                    icon: selectedPostId === post.id ? (
+                        <CircleDot className="h-5 w-5 shrink-0 text-blue-600 dark:text-blue-400" />
+                    ) : (
+                        <Circle className="h-5 w-5 shrink-0 text-neutral-400 dark:text-neutral-500" />
+                    )
+                }} 
+                className={selectedPostId === post.id ? "bg-blue-50 dark:bg-blue-900/20 rounded-lg" : ""} 
+              />
             ))}
           </div>
+
         </div>
         
         {/* User Profile */}

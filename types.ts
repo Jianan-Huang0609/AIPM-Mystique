@@ -11,16 +11,19 @@ export interface Post {
   location: string; // Used as a subtitle or tag
   category: Category;
   viewpoint: string; // The core idea/summary for the "Viewpoint" box
-  content: string;   // The "Example" box content
+  content: string;   // The "Example" box content. For Q&A, this is the Intro text.
   images: PostImage[];  // The "Practice" box images with captions
   author: string;
   authorAvatar: string;
   takeaway?: string; // The "Takeaway" block content
+  tradeoff?: string; // The "Reverse Thinking" block content
   reflection?: string; // The "Reflection/Refining" content
   links?: { title: string; url: string }[]; // Optional links for projects
+  qaItems?: { topic: string; questions: string[] }[]; // Updated structure: Topic + Parallel Questions
+  characteristics?: { label: string; description: string }[]; // New field for Home page expandable content
 }
 
-export type Category = 'All' | 'PM Architecture' | 'AI Cultivation';
+export type Category = 'Intro' | 'All' | 'PM Architecture' | 'AI Cultivation' | 'Q&A';
 
 export interface SidebarProps {
   posts: Post[];
