@@ -37,26 +37,26 @@ const QAItemCard: React.FC<QAItemCardProps> = ({ item, index }) => {
   };
 
   return (
-    <div className="bg-white border border-[#E8DCC6] rounded-2xl p-8 md:p-10 shadow-sm hover:shadow-md transition-all relative overflow-hidden group h-full flex flex-col">
+    <div className="bg-white border border-[#E8DCC6] rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all relative overflow-hidden group h-full flex flex-col">
       {/* Accent Bar */}
-      <div className="absolute top-0 left-0 w-2 h-full bg-[#734025]" />
+      <div className="absolute top-0 left-0 w-1.5 h-full bg-[#734025]" />
       
-      <div className="flex flex-col gap-8 pl-4 flex-1">
+      <div className="flex flex-col gap-6 pl-3 flex-1">
         {/* Topic Badge */}
         <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-full bg-[#734025]/10 flex items-center justify-center shrink-0">
-                <HelpCircle className="text-[#734025]" size={22} />
+            <div className="h-8 w-8 rounded-full bg-[#734025]/10 flex items-center justify-center shrink-0">
+                <HelpCircle className="text-[#734025]" size={18} />
             </div>
-            <span className="px-4 py-1.5 bg-[#734025] text-white text-base font-bold rounded-full shadow-sm tracking-wide">
+            <span className="px-3 py-1 bg-[#734025] text-white text-sm font-bold rounded-full shadow-sm tracking-wide">
                 {item.topic}
             </span>
         </div>
 
         {/* Parallel Questions */}
-        <div className="flex flex-col gap-6 flex-1">
+        <div className="flex flex-col gap-4 flex-1">
             {item.questions.map((question, qIdx) => (
-                <div key={qIdx} className="relative pl-8 before:content-[''] before:absolute before:left-1 before:top-4 before:w-2.5 before:h-2.5 before:bg-[#DC9942] before:rounded-full">
-                    <h3 className="text-xl md:text-2xl font-bold text-[#4A2C2A] leading-snug">
+                <div key={qIdx} className="relative pl-6 before:content-[''] before:absolute before:left-1 before:top-2.5 before:w-2 before:h-2 before:bg-[#DC9942] before:rounded-full">
+                    <h3 className="text-lg font-bold text-[#4A2C2A] leading-snug">
                         {question}
                     </h3>
                 </div>
@@ -64,21 +64,21 @@ const QAItemCard: React.FC<QAItemCardProps> = ({ item, index }) => {
         </div>
 
         {/* Answer Section (Editable) */}
-        <div className="ml-0 md:ml-12 mt-4">
+        <div className="mt-2">
            <div className="relative">
-             <div className="absolute top-4 left-4 text-[#DC9942]">
-                <PenLine size={24} />
+             <div className="absolute top-3 left-3 text-[#DC9942]">
+                <PenLine size={18} />
              </div>
              <textarea 
                 value={answer}
                 onChange={handleInputChange}
                 placeholder="Click here to type your answer or summary live..."
-                className="w-full min-h-[160px] p-5 pl-14 bg-[#FDFBF7] border-2 border-[#E8DCC6] rounded-xl text-lg md:text-xl 2xl:text-2xl text-[#4A2C2A] placeholder:text-[#BCAAA4] focus:outline-none focus:border-[#734025]/50 focus:bg-white transition-all resize-y font-serif leading-relaxed"
+                className="w-full min-h-[140px] p-3 pl-10 bg-[#FDFBF7] border border-[#E8DCC6] rounded-xl text-base text-[#4A2C2A] placeholder:text-[#BCAAA4] focus:outline-none focus:border-[#734025]/50 focus:bg-white transition-all resize-y font-serif leading-relaxed"
              />
              {answer && (
-                <div className="absolute bottom-4 right-4 flex items-center gap-1 text-sm text-[#734025] font-bold bg-white/80 px-3 py-1.5 rounded-md shadow-sm opacity-50 hover:opacity-100 transition-opacity pointer-events-none">
-                   <Save size={14} />
-                   <span>Saved locally</span>
+                <div className="absolute bottom-3 right-3 flex items-center gap-1 text-xs text-[#734025] font-bold bg-white/80 px-2 py-1 rounded-md shadow-sm opacity-50 hover:opacity-100 transition-opacity pointer-events-none">
+                   <Save size={12} />
+                   <span>Saved</span>
                 </div>
              )}
            </div>
@@ -123,7 +123,7 @@ const PostCard: React.FC<PostCardProps> = ({ post, onImageClick, onNavigate }) =
     return (
       <div className="h-full flex flex-col justify-center items-center p-8 lg:p-12 bg-gradient-to-br from-[#FDFBF9] to-[#FFF5F7] overflow-y-auto">
          <div className="max-w-[90%] xl:max-w-7xl 2xl:max-w-screen-2xl w-full flex flex-col items-center text-center gap-10">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#734025]/20 text-[#734025] text-sm font-bold uppercase tracking-widest">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#734025]/10 text-[#734025] text-sm font-bold uppercase tracking-widest border border-[#734025]/20">
                <Sparkles size={16} />
                <span>Architecture Sharing</span>
             </div>
@@ -150,7 +150,7 @@ const PostCard: React.FC<PostCardProps> = ({ post, onImageClick, onNavigate }) =
                 >
                   <p className="font-medium text-lg md:text-xl text-center w-full relative">
                     {post.content}
-                    <span className="absolute right-0 top-1/2 -translate-y-1/2 text-[#DC9942]">
+                    <span className="absolute right-0 top-1/2 -translate-y-1/2 text-[#DC9942] pr-6">
                       {isHomeContextExpanded ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
                     </span>
                   </p>
@@ -249,7 +249,7 @@ const PostCard: React.FC<PostCardProps> = ({ post, onImageClick, onNavigate }) =
             <p className="text-2xl text-[#734025] max-w-4xl mx-auto font-serif italic">{post.viewpoint}</p>
          </div>
 
-         {/* Q&A Cards with Input - Force horizontal on medium and larger screens */}
+         {/* Q&A Cards - Horizontal Grid (3 Columns) */}
          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pb-16">
             {post.qaItems?.map((item, idx) => (
                <div key={idx} className="w-full">
@@ -299,7 +299,7 @@ const PostCard: React.FC<PostCardProps> = ({ post, onImageClick, onNavigate }) =
           )}
         </div>
 
-        {/* Viewpoint Card - UPDATED THEME: Brown Gradient */}
+        {/* Viewpoint Card - Warm Brown Gradient */}
         <div className="w-full bg-gradient-to-r from-[#734025] to-[#A1887F] rounded-2xl p-8 md:p-10 shadow-lg text-white relative overflow-hidden group">
           <div className="absolute -top-4 -right-4 text-white opacity-10 transform rotate-12 group-hover:rotate-0 transition-transform duration-500">
             <Quote size={180} />
@@ -463,8 +463,8 @@ const PostCard: React.FC<PostCardProps> = ({ post, onImageClick, onNavigate }) =
       {/* 3. BOTTOM SECTION: TAKEAWAY & REFLECTION & TRADEOFF */}
       <div className="flex flex-col gap-6 pb-12">
         
-        {/* Takeaway Card */}
-        <div className="bg-white border border-[#DC9942] border-l-[6px] rounded-r-2xl p-8 md:p-10 shadow-sm flex flex-col gap-6 relative group hover:shadow-md transition-shadow w-full">
+        {/* Takeaway Card (Mustard Gold Accent) */}
+        <div className="bg-white border border-[#DC9942] border-l-[8px] rounded-r-2xl p-8 md:p-10 shadow-sm flex flex-col gap-6 relative group hover:shadow-md transition-shadow w-full">
           <div>
             <div className="flex items-center gap-2.5 text-[#DC9942] mb-4">
                 <Lightbulb size={24} />
@@ -485,14 +485,14 @@ const PostCard: React.FC<PostCardProps> = ({ post, onImageClick, onNavigate }) =
             )}
           </div>
 
-          {/* Tradeoff / Reverse Thinking (Sub-section in Takeaway) */}
+          {/* Tradeoff / Reverse Thinking (Dusty Pink Accent) */}
           {post.tradeoff && (
              <div className="pt-8 border-t border-[#E8DCC6] mt-2">
                <div className="flex items-center gap-2.5 text-[#DD8B8B] mb-4">
                   <Undo2 size={20} />
                   <h3 className="font-bold uppercase text-sm tracking-widest">Reverse Thinking / Tradeoff</h3>
                </div>
-               <div className="bg-[#FDFBF7] p-6 md:p-8 rounded-xl border border-[#E8DCC6]">
+               <div className="bg-[#FFF5F7]/30 p-6 md:p-8 rounded-xl border border-[#DD8B8B] border-l-[6px]">
                    <ReactMarkdown
                     components={{
                          p: ({node, ...props}) => <p className="text-[#4A2C2A] text-lg md:text-xl font-medium italic leading-relaxed" {...props} />,
@@ -508,9 +508,9 @@ const PostCard: React.FC<PostCardProps> = ({ post, onImageClick, onNavigate }) =
           )}
         </div>
 
-        {/* Reflection Card */}
+        {/* Reflection Card (Warm Brown Accent) */}
         {post.reflection && (
-          <div className="bg-white border border-[#734025] border-l-[6px] rounded-r-2xl p-8 md:p-10 shadow-sm flex flex-col gap-4 hover:shadow-md transition-shadow w-full">
+          <div className="bg-white border border-[#734025] border-l-[8px] rounded-r-2xl p-8 md:p-10 shadow-sm flex flex-col gap-4 hover:shadow-md transition-shadow w-full">
             <div className="flex items-center gap-2.5 text-[#734025] mb-3">
               <AlertCircle size={24} />
               <h3 className="font-bold uppercase text-sm tracking-widest">Reflection & Refining</h3>

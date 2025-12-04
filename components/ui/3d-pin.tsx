@@ -157,7 +157,7 @@ export const PinPerspective = ({
           <motion.div className="absolute right-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-[#DC9942] translate-y-[14px] w-px h-20 group-hover/pin:h-40 blur-[2px]" />
           <motion.div className="absolute right-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-[#DC9942] translate-y-[14px] w-px h-20 group-hover/pin:h-40  " />
           <motion.div className="absolute right-1/2 translate-x-[1.5px] bottom-1/2 bg-[#DC9942] translate-y-[14px] w-[4px] h-[4px] rounded-full z-40 blur-[3px]" />
-          <motion.div className="absolute right-1/2 translate-x-[0.5px] bottom-1/2 bg-[#F8819B] translate-y-[14px] w-[2px] h-[2px] rounded-full z-40 " />
+          <motion.div className="absolute right-1/2 translate-x-[0.5px] bottom-1/2 bg-[#DD8B8B] translate-y-[14px] w-[2px] h-[2px] rounded-full z-40 " />
         </>
       </div>
     </motion.div>
