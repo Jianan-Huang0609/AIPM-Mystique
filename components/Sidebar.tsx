@@ -58,7 +58,7 @@ export function SidebarDemo({
                     onClick: () => onSelectPost(homePost),
                     icon: <Home className={`h-5 w-5 ${selectedPostId === homePost.id ? 'text-[#734025]' : 'text-neutral-500'}`} />
                   }}
-                  className={selectedPostId === homePost.id ? "bg-[#DD8B8B]/10 rounded-lg" : ""}
+                  className={selectedPostId === homePost.id ? "bg-[#734025]/10 rounded-lg" : ""}
                />
              </div>
           )}
@@ -96,7 +96,7 @@ export function SidebarDemo({
                           <MessageCircleQuestion className={`h-5 w-5 ${isActive ? 'text-[#734025]' : 'text-neutral-500'}`} />
                         )
                       }}
-                      className={isActive ? (isQA ? "bg-[#DD8B8B]/10 rounded-lg" : "bg-[#DD8B8B]/10 rounded-lg") : ""}
+                      className={isActive ? (isQA ? "bg-[#734025]/10 rounded-lg" : "bg-[#734025]/10 rounded-lg") : ""}
                     />
                   );
                 })}
@@ -116,12 +116,12 @@ export function SidebarDemo({
                     href: "#",
                     onClick: () => onSelectPost(post),
                     icon: selectedPostId === post.id ? (
-                        <CircleDot className="h-5 w-5 shrink-0 text-[#DD8B8B]" />
+                        <CircleDot className="h-5 w-5 shrink-0 text-[#734025]" />
                     ) : (
                         <Circle className="h-5 w-5 shrink-0 text-neutral-400 dark:text-neutral-500" />
                     )
                 }} 
-                className={selectedPostId === post.id ? "bg-[#DD8B8B]/10 rounded-lg" : ""} 
+                className={selectedPostId === post.id ? "bg-[#734025]/10 rounded-lg" : ""} 
               />
             ))}
           </div>
