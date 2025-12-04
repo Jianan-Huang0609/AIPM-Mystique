@@ -37,11 +37,11 @@ const QAItemCard: React.FC<QAItemCardProps> = ({ item, index }) => {
   };
 
   return (
-    <div className="bg-white border border-[#E8DCC6] rounded-2xl p-8 md:p-10 shadow-sm hover:shadow-md transition-all relative overflow-hidden group">
+    <div className="bg-white border border-[#E8DCC6] rounded-2xl p-8 md:p-10 shadow-sm hover:shadow-md transition-all relative overflow-hidden group h-full flex flex-col">
       {/* Accent Bar */}
       <div className="absolute top-0 left-0 w-2 h-full bg-[#734025]" />
       
-      <div className="flex flex-col gap-8 pl-4">
+      <div className="flex flex-col gap-8 pl-4 flex-1">
         {/* Topic Badge */}
         <div className="flex items-center gap-3">
             <div className="h-10 w-10 rounded-full bg-[#734025]/10 flex items-center justify-center shrink-0">
@@ -53,7 +53,7 @@ const QAItemCard: React.FC<QAItemCardProps> = ({ item, index }) => {
         </div>
 
         {/* Parallel Questions */}
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 flex-1">
             {item.questions.map((question, qIdx) => (
                 <div key={qIdx} className="relative pl-8 before:content-[''] before:absolute before:left-1 before:top-4 before:w-2.5 before:h-2.5 before:bg-[#DC9942] before:rounded-full">
                     <h3 className="text-xl md:text-2xl font-bold text-[#4A2C2A] leading-snug">
@@ -249,10 +249,10 @@ const PostCard: React.FC<PostCardProps> = ({ post, onImageClick, onNavigate }) =
             <p className="text-2xl text-[#734025] max-w-4xl mx-auto font-serif italic">{post.viewpoint}</p>
          </div>
 
-         {/* Q&A Cards with Input */}
-         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 pb-16">
+         {/* Q&A Cards with Input - Force horizontal on medium and larger screens */}
+         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pb-16">
             {post.qaItems?.map((item, idx) => (
-               <div key={idx} className={idx === post.qaItems!.length - 1 && post.qaItems!.length % 2 !== 0 ? "lg:col-span-2" : ""}>
+               <div key={idx} className="w-full">
                    <QAItemCard item={item} index={idx} />
                </div>
             ))}
