@@ -44,7 +44,7 @@ export function SidebarDemo({
 
   return (
     <Sidebar open={open} setOpen={setOpen}>
-      <SidebarBody className="justify-between gap-10 border-r border-neutral-200 bg-white dark:bg-neutral-900 dark:border-neutral-800">
+      <SidebarBody className="justify-between gap-10 border-r border-[#E8DCC6] bg-[#FDFBF9] dark:bg-neutral-900 dark:border-neutral-800">
         <div className="flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
           {open ? <Logo /> : <LogoIcon />}
           
@@ -56,9 +56,9 @@ export function SidebarDemo({
                     label: "Home",
                     href: "#",
                     onClick: () => onSelectPost(homePost),
-                    icon: <Home className={`h-5 w-5 ${selectedPostId === homePost.id ? 'text-blue-600' : 'text-neutral-500'}`} />
+                    icon: <Home className={`h-5 w-5 ${selectedPostId === homePost.id ? 'text-[#734025]' : 'text-neutral-500'}`} />
                   }}
-                  className={selectedPostId === homePost.id ? "bg-blue-50 dark:bg-blue-900/20 rounded-lg" : ""}
+                  className={selectedPostId === homePost.id ? "bg-[#DD8B8B]/10 rounded-lg" : ""}
                />
              </div>
           )}
@@ -91,12 +91,12 @@ export function SidebarDemo({
                           }
                         },
                         icon: (
-                          cat === 'PM Architecture' ? <LayoutDashboard className={`h-5 w-5 ${isActive ? 'text-blue-600' : 'text-neutral-500'}`} /> :
-                          cat === 'AI Cultivation' ? <BrainCircuit className={`h-5 w-5 ${isActive ? 'text-emerald-600' : 'text-neutral-500'}`} /> :
-                          <MessageCircleQuestion className={`h-5 w-5 ${isActive ? 'text-amber-600' : 'text-neutral-500'}`} />
+                          cat === 'PM Architecture' ? <LayoutDashboard className={`h-5 w-5 ${isActive ? 'text-[#734025]' : 'text-neutral-500'}`} /> :
+                          cat === 'AI Cultivation' ? <BrainCircuit className={`h-5 w-5 ${isActive ? 'text-[#734025]' : 'text-neutral-500'}`} /> :
+                          <MessageCircleQuestion className={`h-5 w-5 ${isActive ? 'text-[#734025]' : 'text-neutral-500'}`} />
                         )
                       }}
-                      className={isActive ? (isQA ? "bg-amber-50 dark:bg-amber-900/20 rounded-lg" : "bg-neutral-100 dark:bg-neutral-800 rounded-lg") : ""}
+                      className={isActive ? (isQA ? "bg-[#DD8B8B]/10 rounded-lg" : "bg-[#DD8B8B]/10 rounded-lg") : ""}
                     />
                   );
                 })}
@@ -116,12 +116,12 @@ export function SidebarDemo({
                     href: "#",
                     onClick: () => onSelectPost(post),
                     icon: selectedPostId === post.id ? (
-                        <CircleDot className="h-5 w-5 shrink-0 text-blue-600 dark:text-blue-400" />
+                        <CircleDot className="h-5 w-5 shrink-0 text-[#DD8B8B]" />
                     ) : (
                         <Circle className="h-5 w-5 shrink-0 text-neutral-400 dark:text-neutral-500" />
                     )
                 }} 
-                className={selectedPostId === post.id ? "bg-blue-50 dark:bg-blue-900/20 rounded-lg" : ""} 
+                className={selectedPostId === post.id ? "bg-[#DD8B8B]/10 rounded-lg" : ""} 
               />
             ))}
           </div>
@@ -153,14 +153,14 @@ export function SidebarDemo({
 
 export const Logo = () => {
   return (
-    <div className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20">
-      <div className="h-5 w-6 bg-black dark:bg-white rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm shrink-0" />
+    <div className="font-normal flex space-x-2 items-center text-sm text-[#4A2C2A] py-1 relative z-20">
+      <div className="h-5 w-6 bg-[#734025] dark:bg-white rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm shrink-0" />
       <motion.span
         {...({
           initial: { opacity: 0 },
           animate: { opacity: 1 }
         } as any)}
-        className="font-medium text-black dark:text-white whitespace-pre"
+        className="font-medium text-[#4A2C2A] dark:text-white whitespace-pre"
       >
         PoC Master
       </motion.span>
@@ -170,8 +170,8 @@ export const Logo = () => {
 
 export const LogoIcon = () => {
   return (
-    <div className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20">
-      <div className="h-5 w-6 bg-black dark:bg-white rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm shrink-0" />
+    <div className="font-normal flex space-x-2 items-center text-sm text-[#4A2C2A] py-1 relative z-20">
+      <div className="h-5 w-6 bg-[#734025] dark:bg-white rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm shrink-0" />
     </div>
   );
 };
