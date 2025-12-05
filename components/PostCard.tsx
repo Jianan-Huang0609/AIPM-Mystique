@@ -249,7 +249,7 @@ const PostCard: React.FC<PostCardProps> = ({ post, onImageClick, onNavigate }) =
             <p className="text-2xl text-[#734025] max-w-4xl mx-auto font-serif italic">{post.viewpoint}</p>
          </div>
 
-         {/* Q&A Cards - Horizontal Grid (3 Columns) */}
+         {/* Q&A Cards - Horizontal Grid (3 Columns) - Enforced on Medium screens and up */}
          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pb-16">
             {post.qaItems?.map((item, idx) => (
                <div key={idx} className="w-full">

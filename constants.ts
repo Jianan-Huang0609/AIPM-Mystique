@@ -36,7 +36,7 @@ export const MOCK_POSTS: Post[] = [
   // --- PART 1: PM Architecture (Steps 0-5) ---
   {
     id: 'step-0',
-    title: '0. 【日常积累】Networking/组队选人 --> 技术栈选型 (Model/Tuning Selection)',
+    title: '0. 【日常积累】Networking/组队选人 --> 技术栈选型',
     date: 'Step 0',
     location: 'Networking',
     category: 'PM Architecture',
@@ -114,7 +114,7 @@ export const MOCK_POSTS: Post[] = [
       { url: 'assets/Brain Prototype.png', caption: 'Brain Prototype' }
     ],
     takeaway: "写AI和人都看得懂的文档。PRD不是给PM自己看的，是给全栈看的（人+AI）。用把业务逻辑、输入输入、项目预期和优化空间写Prototype。减少开发理解需求的摩擦力。",
-    tradeoff: "如果需求高度不确定（变更率>50%），重文档反而是负担\n- 如果团队是成熟团队（合作过3次以上），trust/Project experiences > documentation",
+    tradeoff: "- 如果需求高度不确定（变更率>50%），重文档反而是负担\n- 如果团队是成熟团队（合作过3次以上），trust/Project experiences > documentation",
     reflection: "反思复盘\n- 并行开发而非端到端交付，注意收敛自己pushy的紧凑感\n- 做好没有人看文档的准备，意识到解释澄清在项目初期的重要性\n- 时间资源充分的情况下，不会依赖翻译官的角色，直接请三方workshop明确需求",
     author: 'Jianan Huang',
     authorAvatar: 'https://picsum.photos/seed/jianan/100/100'
