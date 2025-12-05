@@ -3,6 +3,9 @@ import { Post, Category } from './types';
 
 export const CATEGORIES: Category[] = ['All', 'PM Architecture', 'AI Cultivation', 'Q&A'];
 
+// Using a stable generated avatar with your theme colors
+const AUTHOR_AVATAR = 'https://ui-avatars.com/api/?name=Jianan+Huang&background=734025&color=fff&size=128';
+
 export const MOCK_POSTS: Post[] = [
   // --- HOME PAGE ---
   {
@@ -30,7 +33,7 @@ export const MOCK_POSTS: Post[] = [
     images: [], 
     takeaway: "",
     author: 'Jianan Huang',
-    authorAvatar: 'https://picsum.photos/seed/jianan/100/100'
+    authorAvatar: AUTHOR_AVATAR
   },
 
   // --- PART 1: PM Architecture (Steps 0-5) ---
@@ -59,13 +62,11 @@ export const MOCK_POSTS: Post[] = [
 *   确认PoC团队对AI有热情、对项目有兴趣、对协作有期待
 *   对结果导向的开发节奏有心理预期（能接受适度加班）
 *   项目启动时已建立信任基础，减少磨合成本`,
-    images: [
-      { url: 'assets/Networking & Team Building.png', caption: 'Networking & Team Building' }
-    ],
+    images: [], 
     takeaway: "项目未动，人脉先行。PM的第一个交付物不是文档，而是项目概念和个人名片，以争取团队向心信任",
     tradeoff: "Tradeoff: PoC阶段最大的风险不是具体的技术做不出来，而是中途断档。但若是成熟的Project，这个环节不用很刻意。",
     author: 'Jianan Huang',
-    authorAvatar: 'https://picsum.photos/seed/jianan/100/100'
+    authorAvatar: AUTHOR_AVATAR
   },
   {
     id: 'step-1',
@@ -86,14 +87,14 @@ export const MOCK_POSTS: Post[] = [
 
 **2. 生成完整项目包（8个章节）：**
 
-*   **CH1-2：需求定义、痛点梳理 + 传统工作流分析**
-    *   **价值**: 快速对齐团队认知，降低认知熵
-*   **CH3：架构设计（设计hand层处理数据+Brian层输出生成式内容+UI层串联实现H in the loop） + 模块分工**
-    *   **价值**: 痛点→解决方案→角色分配的完整链路
-*   **CH4：Evals/Qulity Gate定义**
-    *   **价值**: 项目启动就建立质量意识（CMDE评估准备）
-*   **CH5-7：任务清单 + 会议记录模板 + 权限开放（SiemensCode、SharePoint、Team chat）**
-    *   **价值**: 执行层面的操作规范
+*   **CH1-2**: 需求定义、痛点梳理 + 传统工作流分析
+    *   *价值*: 快速对齐团队认知，降低认知熵
+*   **CH3**: 架构设计（设计hand层处理数据+Brian层输出生成式内容+UI层串联实现H in the loop） + 模块分工
+    *   *价值*: 痛点→解决方案→角色分配的完整链路
+*   **CH4**: Evals/Qulity Gate定义
+    *   *价值*: 项目启动就建立质量意识（CMDE评估准备）
+*   **CH5-7**: 任务清单 + 会议记录模板 + 权限开放（SiemensCode、SharePoint、Team chat）
+    *   *价值*: 执行层面的操作规范
 
 **3. 带着项目原型和开发沟通**
 - Hand包、Brain包可以先写一个带着业务流程的框架给到开发。直接定义清楚input、output流程、格式和我期待的颗粒度。这样能帮助开发专注功能的开发与性能的优化。
@@ -117,7 +118,7 @@ export const MOCK_POSTS: Post[] = [
     tradeoff: "- 如果需求高度不确定（变更率>50%），重文档反而是负担\n- 如果团队是成熟团队（合作过3次以上），trust/Project experiences > documentation",
     reflection: "反思复盘\n- 并行开发而非端到端交付，注意收敛自己pushy的紧凑感\n- 做好没有人看文档的准备，意识到解释澄清在项目初期的重要性\n- 时间资源充分的情况下，不会依赖翻译官的角色，直接请三方workshop明确需求",
     author: 'Jianan Huang',
-    authorAvatar: 'https://picsum.photos/seed/jianan/100/100'
+    authorAvatar: AUTHOR_AVATAR
   },
   {
     id: 'step-2',
@@ -152,13 +153,13 @@ export const MOCK_POSTS: Post[] = [
 - 开发人员专注于核心功能，不被流程打扰。`,
     images: [
       { url: 'assets/会前讨论.png', caption: '会前讨论' },
-      { url: 'assets/会议三-专家讨论.png', caption: '结论总结' },
+      { url: 'assets/会议三-专家讨论.png', caption: '专家讨论' },
       { url: 'assets/会议后action memo.png', caption: '会议后action memo' }
     ],
     takeaway: "正确认识PoC会议：要利用宝贵的PoC会议时间来减少/解决模糊性。会前能被整理的清晰的信息不应该占用会议时间现场生成。\n\n最小化记录和誊写工作：只准备一个输入源，但是设想好输出源的不同工具搭配。比如从设计到开发到present：可以直接md-->xml/html-->Slides",
     reflection: "反思复盘\n- 明确PM交叉属性的价值，而非大包大揽的兼顾：Brain层的框架搭建是可行高效的，但重复劳动没必要，一定要给开发留独立完整的设计空间。\n- 确保成员对模块的ownership：边界太清晰会遏制其他解法的可能性，Brainstorming类会议就不完全适用。",
     author: 'Jianan Huang',
-    authorAvatar: 'https://picsum.photos/seed/jianan/100/100'
+    authorAvatar: AUTHOR_AVATAR
   },
   {
     id: 'step-3',
@@ -197,7 +198,7 @@ export const MOCK_POSTS: Post[] = [
     takeaway: "PM要站在user视角看代码，站在开发视角看需求。",
     tradeoff: "但是如果有更好/更资深的资源，PM不要主动承担翻译，而是引入翻译（请tech lead帮忙）",
     author: 'Jianan Huang',
-    authorAvatar: 'https://picsum.photos/seed/jianan/100/100'
+    authorAvatar: AUTHOR_AVATAR
   },
   {
     id: 'step-4',
@@ -225,7 +226,7 @@ export const MOCK_POSTS: Post[] = [
     takeaway: "不是盯人，是盯系统健康度。用commit频率等指标来观察系统开发速度。",
     tradeoff: "但是如果团队稳定性高，过度容错会有不信任感。",
     author: 'Jianan Huang',
-    authorAvatar: 'https://picsum.photos/seed/jianan/100/100'
+    authorAvatar: AUTHOR_AVATAR
   },
   {
     id: 'step-5',
@@ -256,7 +257,7 @@ export const MOCK_POSTS: Post[] = [
     images: [],
     takeaway: "项目结束不是终点，是下一个项目的起点。做知识的compound interest。",
     author: 'Jianan Huang',
-    authorAvatar: 'https://picsum.photos/seed/jianan/100/100'
+    authorAvatar: AUTHOR_AVATAR
   },
 
   // --- PART 2: AI Cultivation (Milestones 1-4) ---
@@ -285,7 +286,7 @@ export const MOCK_POSTS: Post[] = [
     ],
     takeaway: "Deep Dive into AI Tools. Make it a habit.",
     author: 'Jianan Huang',
-    authorAvatar: 'https://picsum.photos/seed/jianan/100/100'
+    authorAvatar: AUTHOR_AVATAR
   },
   {
     id: 'm-2',
@@ -310,7 +311,7 @@ export const MOCK_POSTS: Post[] = [
     images: [],
     takeaway: "Stay updated. Build your personal AI advisory board.",
     author: 'Jianan Huang',
-    authorAvatar: 'https://picsum.photos/seed/jianan/100/100'
+    authorAvatar: AUTHOR_AVATAR
   },
   {
     id: 'm-3',
@@ -333,13 +334,11 @@ export const MOCK_POSTS: Post[] = [
 - 从0到1交付完整PoC或SaaS项目（AI玩具辅助学习生活）
 - 建立个人方法论和工具箱(各类分享项目)
 - 形成可复制的项目打法(版本管理、上下文工程/PDR意识、前端设计、产品化思维)`,
-    images: [
-      { url: 'https://cursor-meets-up.vercel.app/og-image.png', caption: 'KnowVis' }
-    ],
+    images: [], 
     takeaway: "Ship it. From toy to tool.",
     links: [{ title: 'KnowVis', url: 'https://cursor-meets-up.vercel.app/' }],
     author: 'Jianan Huang',
-    authorAvatar: 'https://picsum.photos/seed/jianan/100/100'
+    authorAvatar: AUTHOR_AVATAR
   },
   {
     id: 'm-4',
@@ -361,13 +360,11 @@ export const MOCK_POSTS: Post[] = [
 ### 定期自检
 - 最近一周有无线上Post/线下分享？
 - 有多少人因为我开始尝试AI工具？`,
-    images: [
-      { url: 'https://ai-self-starter.vercel.app/og-image.png', caption: 'AI_Self_Starter' }
-    ],
+    images: [],
     takeaway: "Influence others. Be the bridge.",
     links: [{ title: 'AI_Self_Starter', url: 'https://ai-self-starter.vercel.app/' }],
     author: 'Jianan Huang',
-    authorAvatar: 'https://picsum.photos/seed/jianan/100/100'
+    authorAvatar: AUTHOR_AVATAR
   },
   
   // --- Q&A SECTION ---
@@ -405,6 +402,6 @@ export const MOCK_POSTS: Post[] = [
     images: [],
     takeaway: "Communication is the key.",
     author: 'Jianan Huang',
-    authorAvatar: 'https://picsum.photos/seed/jianan/100/100'
+    authorAvatar: AUTHOR_AVATAR
   }
 ];

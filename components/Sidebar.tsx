@@ -136,7 +136,7 @@ export function SidebarDemo({
               href: "#",
               icon: (
                 <img
-                  src="https://picsum.photos/seed/jianan/100/100"
+                  src="https://ui-avatars.com/api/?name=Jianan+Huang&background=734025&color=fff&size=128"
                   className="h-7 w-7 shrink-0 rounded-full object-cover"
                   width={50}
                   height={50}
