@@ -84,7 +84,6 @@ export const MOCK_POSTS: Post[] = [
 
 **1. 定义项目功能边界**
 按照历史材料吸收CER的真实工作流和Evals + 并定义让用户眼前一亮的必备功能。
-![章节理解与定义](assets/CER Function.png)
 
 **2. 生成完整项目包（8个章节）：**
 
@@ -141,19 +140,16 @@ export const MOCK_POSTS: Post[] = [
    - 准备agenda，相关文档邮件提前发送
    - 针对每个人准备具体讨论话题
    - 准备Memo清单（按模块和优先级）
-![会前讨论](assets/会前讨论.png)
 
 2. **会中执行**
    - 基于Memo清单，带着具体问题讨论
    - 往结论与共识靠拢，避免发散
    - 实时记录决策和分歧点
-![结论总结](assets/会议三-专家讨论.png)
 
 3. **会后闭环**
    - 快速整合：Owner + Action + DDL
    - Meeting Minutes 2小时内同步
    - 更新共享文档和代码库
-![](assets/会议后action memo.png)
 
 
 ### 实际效果
@@ -192,9 +188,6 @@ export const MOCK_POSTS: Post[] = [
 - **需求**：差异分析需要三层逻辑（产品特性 + 临床影响 + 风险评估）
 - **动作**：简单验证prompt是否达到效果
 - **反馈链**：归纳业务逻辑 → 代码draft（验证效果+确定可行性） → 业务实现落地
-![业务端的三层逻辑](assets/三层逻辑.png)
-![Change.md](assets/Change.png)
-![Counmunicaion](assets/image.png)
 
 
 **✅ 实际效果**
@@ -261,7 +254,7 @@ export const MOCK_POSTS: Post[] = [
 - 分享给跨项目PM，累加总结高效价值
 - 扩大个人影响力和方法论的传播
 
-### 实际效果
+### 目标
 - 下一个PoC项目启动周期从2周缩短到3天
 - 团队新成员onboarding时间减少50%
 - 个人方法论成为团队标准流程`,
