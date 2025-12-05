@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Post, Category } from '../types';
-import { Sparkles, ArrowLeft, ArrowRight, Maximize2, Quote, BookOpen, Camera, Lightbulb, AlertCircle, Info, ExternalLink, HelpCircle, PenLine, Save, ChevronDown, ChevronUp, Undo2 } from 'lucide-react';
+import { Sparkles, ArrowLeft, ArrowRight, Maximize2, Quote, BookOpen, Camera, Lightbulb, AlertCircle, Info, ExternalLink, HelpCircle, PenLine, Save, ChevronDown, ChevronUp, Undo2, Download, Copy, FileText, Check } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { PinContainer } from './ui/3d-pin';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -92,11 +92,13 @@ const QAItemCard: React.FC<QAItemCardProps> = ({ item, index }) => {
 const PostCard: React.FC<PostCardProps> = ({ post, onImageClick, onNavigate }) => {
   const [currentImageIdx, setCurrentImageIdx] = useState(0);
   const [isHomeContextExpanded, setIsHomeContextExpanded] = useState(false);
+  const [isCopied, setIsCopied] = useState(false);
 
   // Reset states when post changes
   React.useEffect(() => {
     setCurrentImageIdx(0);
     setIsHomeContextExpanded(false);
+    setIsCopied(false);
   }, [post.id]);
 
   const nextImage = (e: React.MouseEvent) => {
@@ -117,6 +119,31 @@ const PostCard: React.FC<PostCardProps> = ({ post, onImageClick, onNavigate }) =
 
   const showPinView = post.links && post.links.length > 0;
   const pinLink = showPinView ? post.links![0] : null;
+
+  const hasDownloadable = !!post.downloadableTemplate;
+  const hasImages = post.images.length > 0;
+  
+  // Show right column if there are images, links, or a downloadable template
+  const showRightColumn = hasImages || showPinView || hasDownloadable;
+
+  const handleDownload = () => {
+    if (!post.downloadableTemplate) return;
+    const element = document.createElement("a");
+    const file = new Blob([post.downloadableTemplate.content], {type: 'text/markdown'});
+    element.href = URL.createObjectURL(file);
+    element.download = post.downloadableTemplate.filename;
+    document.body.appendChild(element); // Required for this to work in FireFox
+    element.click();
+    document.body.removeChild(element);
+  };
+
+  const handleCopy = () => {
+    if (!post.downloadableTemplate) return;
+    navigator.clipboard.writeText(post.downloadableTemplate.content).then(() => {
+      setIsCopied(true);
+      setTimeout(() => setIsCopied(false), 2000);
+    });
+  };
 
   // --- HOME VIEW ---
   if (post.category === 'Intro') {
@@ -320,7 +347,7 @@ const PostCard: React.FC<PostCardProps> = ({ post, onImageClick, onNavigate }) =
       <div className="flex flex-col xl:flex-row gap-8 min-h-[60vh]">
         
         {/* Left: Content / Example */}
-        <div className="flex-[3] bg-white border border-[#E8DCC6] rounded-3xl shadow-sm flex flex-col overflow-hidden">
+        <div className={`flex-[3] bg-white border border-[#E8DCC6] rounded-3xl shadow-sm flex flex-col overflow-hidden ${!showRightColumn ? 'w-full flex-1' : ''}`}>
           <div className="px-8 py-5 border-b border-[#E8DCC6] bg-[#FFF5F7]/30 flex items-center justify-between">
             <div className="flex items-center gap-3 text-[#4A2C2A]">
                 <BookOpen className="text-[#734025]" size={20} />
@@ -348,11 +375,49 @@ const PostCard: React.FC<PostCardProps> = ({ post, onImageClick, onNavigate }) =
           </div>
         </div>
 
-        {/* Right: Practice / Images (Switchable) OR 3D Pin for Projects */}
+        {/* Right: Practice / Images / Downloadable / 3D Pin */}
+        {showRightColumn && (
         <div className="flex-[2] flex flex-col gap-4 min-h-[500px] xl:min-h-auto relative z-0">
           
-          {showPinView && pinLink ? (
-            /* 3D PIN VIEW FOR LINKED PROJECTS */
+          {/* CASE 1: DOWNLOADABLE TEMPLATE (Step 5) */}
+          {hasDownloadable && post.downloadableTemplate ? (
+             <div className="bg-[#FDFBF7] border border-[#E8DCC6] rounded-3xl p-1.5 shadow-sm flex-1 flex flex-col relative group overflow-hidden">
+                <div className="absolute top-6 left-6 z-20 bg-white/80 backdrop-blur-md px-4 py-2 rounded-full flex items-center gap-2 border border-[#E8DCC6] shadow-sm">
+                   <FileText className="text-[#734025]" size={16} />
+                   <h3 className="font-bold text-[#4A2C2A] text-xs uppercase tracking-wider">Resource / Template</h3>
+                </div>
+
+                <div className="relative flex-1 rounded-2xl overflow-hidden bg-white h-full w-full flex flex-col items-center justify-center p-8 gap-6">
+                   <div className="w-24 h-24 bg-[#734025]/10 rounded-2xl flex items-center justify-center text-[#734025] mb-2">
+                      <FileText size={48} />
+                   </div>
+                   
+                   <div className="text-center">
+                      <h3 className="text-2xl font-bold text-[#4A2C2A] mb-2">{post.downloadableTemplate.title}</h3>
+                      <p className="text-[#8D6E63] font-mono text-sm">{post.downloadableTemplate.filename}</p>
+                   </div>
+
+                   <div className="flex flex-col gap-3 w-full max-w-xs mt-4">
+                      <button 
+                        onClick={handleCopy}
+                        className="flex items-center justify-center gap-2 w-full py-3 px-6 bg-[#FDFBF7] hover:bg-[#EFEBE9] border border-[#E8DCC6] rounded-xl text-[#734025] font-bold transition-all active:scale-95"
+                      >
+                         {isCopied ? <Check size={18} /> : <Copy size={18} />}
+                         {isCopied ? "Copied!" : "Copy to Clipboard"}
+                      </button>
+                      
+                      <button 
+                        onClick={handleDownload}
+                        className="flex items-center justify-center gap-2 w-full py-3 px-6 bg-[#734025] hover:bg-[#5D4037] text-white rounded-xl font-bold shadow-md hover:shadow-lg transition-all active:scale-95"
+                      >
+                         <Download size={18} />
+                         Download .md
+                      </button>
+                   </div>
+                </div>
+             </div>
+          ) : showPinView && pinLink ? (
+            /* CASE 2: 3D PIN VIEW FOR LINKED PROJECTS */
             <div className="bg-[#FFF5F7]/30 border border-[#E8DCC6] rounded-3xl shadow-sm flex-1 flex flex-col items-center justify-center relative overflow-visible">
                <div className="absolute top-6 left-6 z-20 bg-white/80 backdrop-blur-md px-4 py-2 rounded-full flex items-center gap-2 border border-[#E8DCC6] shadow-sm">
                   <ExternalLink className="text-[#734025]" size={16} />
@@ -370,19 +435,33 @@ const PostCard: React.FC<PostCardProps> = ({ post, onImageClick, onNavigate }) =
                           Click to explore the live project.
                         </span>
                       </div>
-                      <div 
-                        className="flex flex-1 w-full rounded-xl mt-6 bg-cover bg-center border border-white/10"
-                        style={{
-                          backgroundImage: `url(${post.images[0]?.url})`,
-                          backgroundColor: '#1e293b'
-                        }}
-                      />
+                      
+                      {/* PREVIEW IMAGE WITH FALLBACK */}
+                      {post.images[0]?.url ? (
+                        <div 
+                          className="flex flex-1 w-full rounded-xl mt-6 bg-cover bg-center border border-white/10"
+                          style={{
+                            backgroundImage: `url(${post.images[0].url})`,
+                            backgroundColor: '#1e293b'
+                          }}
+                        />
+                      ) : (
+                        /* FALLBACK IF NO LOCAL IMAGE PROVIDED/FOUND: AUTOMATED SCREENSHOT */
+                        <div 
+                          className="flex flex-1 w-full rounded-xl mt-6 bg-cover bg-top border border-white/10"
+                          style={{
+                            backgroundImage: `url(https://s0.wp.com/mshots/v1/${encodeURIComponent(pinLink.url)}?w=800&h=600)`,
+                            backgroundColor: '#1e293b'
+                          }}
+                        />
+                      )}
+                      
                     </div>
                  </PinContainer>
                </div>
             </div>
           ) : (
-            /* STANDARD IMAGE GALLERY */
+            /* CASE 3: STANDARD IMAGE GALLERY */
             <div className="bg-[#FDFBF7] border border-[#E8DCC6] rounded-3xl p-1.5 shadow-sm flex-1 flex flex-col relative group overflow-hidden">
              
              {/* Header Overlay */}
@@ -458,6 +537,7 @@ const PostCard: React.FC<PostCardProps> = ({ post, onImageClick, onNavigate }) =
           </div>
           )}
         </div>
+        )}
       </div>
 
       {/* 3. BOTTOM SECTION: TAKEAWAY & REFLECTION & TRADEOFF */}

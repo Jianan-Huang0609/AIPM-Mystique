@@ -84,6 +84,7 @@ export const MOCK_POSTS: Post[] = [
 
 **1. 定义项目功能边界**
 按照历史材料吸收CER的真实工作流和Evals + 并定义让用户眼前一亮的必备功能。
+![章节理解与定义](assets/CER Function.png)
 
 **2. 生成完整项目包（8个章节）：**
 
@@ -98,6 +99,9 @@ export const MOCK_POSTS: Post[] = [
 
 **3. 带着项目原型和开发沟通**
 - Hand包、Brain包可以先写一个带着业务流程的框架给到开发。直接定义清楚input、output流程、格式和我期待的颗粒度。这样能帮助开发专注功能的开发与性能的优化。
+![Hand Prototype](assets/Hand Prototype.png)
+![Brian Prototype](assets/Brain Prototype.png)
+
 
 **4. 队内维护信息尽早确立**
 - 公共Teams频道、ShareFolder
@@ -137,16 +141,20 @@ export const MOCK_POSTS: Post[] = [
    - 准备agenda，相关文档邮件提前发送
    - 针对每个人准备具体讨论话题
    - 准备Memo清单（按模块和优先级）
+![会前讨论](assets/会前讨论.png)
 
 2. **会中执行**
    - 基于Memo清单，带着具体问题讨论
    - 往结论与共识靠拢，避免发散
    - 实时记录决策和分歧点
+![结论总结](assets/会议三-专家讨论.png)
 
 3. **会后闭环**
    - 快速整合：Owner + Action + DDL
    - Meeting Minutes 2小时内同步
    - 更新共享文档和代码库
+![](assets/会议后action memo.png)
+
 
 ### 实际效果
 - 宝贵的会议时间聚焦于不确定问题的解决，而非公共信息的传递， 比如来自专家的feedback，来自大家的纠错和优化，来自模块包交互之间的需求。
@@ -184,6 +192,9 @@ export const MOCK_POSTS: Post[] = [
 - **需求**：差异分析需要三层逻辑（产品特性 + 临床影响 + 风险评估）
 - **动作**：简单验证prompt是否达到效果
 - **反馈链**：归纳业务逻辑 → 代码draft（验证效果+确定可行性） → 业务实现落地
+![业务端的三层逻辑](assets/三层逻辑.png)
+![Change.md](assets/Change.png)
+![Counmunicaion](assets/image.png)
 
 
 **✅ 实际效果**
@@ -256,6 +267,78 @@ export const MOCK_POSTS: Post[] = [
 - 个人方法论成为团队标准流程`,
     images: [],
     takeaway: "项目结束不是终点，是下一个项目的起点。做知识的compound interest。",
+    downloadableTemplate: {
+      title: "PM 一键复制包",
+      filename: "PM一键包.md",
+      content: `# PM 一键复制包
+
+> * Vibe-First: 爽感即正义 (Optimization for Delight).
+> * Bilingual Docs: 写人机共读的文档 (Docs for Humans & AI).
+> * Composable Skills: 管理即代码 (Management as Code).
+> * Bounded Autonomy: 骨架锁死，开发自由 (Framework + Creativity).
+> * Entropy Reduction: 会议只处理模糊信息 (Meetings for Alignment only).
+> * Contextualized Actions: 动作必带背景 (Actions + Context).
+> * Dual-View Eval: 用户视角的验收，开发视角的定义 (User's Eye on Code, Dev's Eye on Specs).
+
+---
+
+## Step 1 需求定义（爽感对齐）
+- 目标：写出让用户眼前一亮、自己讲起来兴奋的功能 \`{列3-5条}\`。
+- 边界：只做让用户爽的必要功能，其他延后 \`{Not Doing 列表}\`。
+- 骨架：一句话产品概念 + Demo 场景 + 成功画面（截图/原型/示意）。
+- 产物：人机共读 PRD（可复制给 LLM 与人）。
+
+## Step 2 传统工作流总结（现状痛点）
+- 现状流程/工具/痛点：\`{3-5 条}\`。
+- 机会点：哪些环节可 AI 化/自动化 \`{列举}\`。
+- 产物：工作流对比表（现状→新方案），标注省时/降错/爽点。
+
+## Step 3 框架搭建 + 技术探针
+- 输出：端到端骨架（输入/处理/输出），技术探针验证可行性。
+- 要求：给开发清晰的输入输出示例，但留 30% 自由度供创造。
+- 产物：架构草图 + 最小可跑脚本/Prompt。
+
+## Step 4 任务拆分（动作带背景）
+| 模块 | 预期结果| 背景/输入 | 输出格式 | Owner | DDL | 依赖/风险 |
+|------|----------------|-----------|----------|-------|-----|----------|
+| {功能A} | {想看到的效果} | {上游/文档} | {代码/API/文档} | {人} | {日} | {风险} |
+
+## Step 5 会议与沟通（只处理模糊）
+
+> 会议唯一价值：处理模糊信息、做决策，不做信息广播。
+> 记忆管理：行动项必须附上下文链接/背景，避免信息漂移。
+
+### 会前
+- 发送议程+材料，标出“不确定/待决策”3-5 点。
+- 为每个人准备专属问题/期待的结论。
+- Memo 草单：按模块/优先级列问题，预期口径。
+
+### 会中（30-60m）
+- 按 Memo/Note 驱动，聚焦模糊点，现场收敛。
+- 记录：结论、分歧、阻塞（谁来解、何时解）。
+
+### 会后（<=2h）
+- 输出 Owner/Action/DDL 表 + 背景链接。
+- 更新文档/Issue，标记下一步阻塞点。
+
+### 快速记录模版
+| 议题 | 结论/分歧 | Owner | Action | DDL | 背景链接 |
+|------|-----------|-------|--------|-----|----------|
+| {议题} | {结论/待定} | {人} | {动作} | {日} | {文档/Issue} |
+
+## Step 6 质量与 Evals（双视角）
+- 用户视角验收：是否解决实际痛点？（演示/示例）
+- 开发视角定义：规格/性能/接口满足吗？（用例/对比）
+- 拒收条件：空白结果、体验硬伤、性能下限。
+
+## Step 7 风险与记忆管理
+- Top 3 风险：\`{风险/触发信号/预案}\`。
+- 记忆管理：所有行动附上背景链接，避免信息漂移。
+
+## Step 8 交付与复盘
+- 交付包：代码/文档/演示 \`{列表}\`。
+- 复盘 30m：做得好/不足/可复制的资产（模板/脚本/Prompt）。`
+    },
     author: 'Jianan Huang',
     authorAvatar: AUTHOR_AVATAR
   },
@@ -334,9 +417,9 @@ export const MOCK_POSTS: Post[] = [
 - 从0到1交付完整PoC或SaaS项目（AI玩具辅助学习生活）
 - 建立个人方法论和工具箱(各类分享项目)
 - 形成可复制的项目打法(版本管理、上下文工程/PDR意识、前端设计、产品化思维)`,
-    images: [], 
+    images: [{ url: 'assets/knowvis.png', caption: 'KnowVis Project' }], 
     takeaway: "Ship it. From toy to tool.",
-    links: [{ title: 'KnowVis', url: 'https://cursor-meets-up.vercel.app/' }],
+    links: [{ title: 'KnowVis', url: 'https://know-vis.vercel.app/' }],
     author: 'Jianan Huang',
     authorAvatar: AUTHOR_AVATAR
   },
@@ -360,9 +443,9 @@ export const MOCK_POSTS: Post[] = [
 ### 定期自检
 - 最近一周有无线上Post/线下分享？
 - 有多少人因为我开始尝试AI工具？`,
-    images: [],
+    images: [{ url: 'assets/cursor.png', caption: 'Cursor Meetups' }],
     takeaway: "Influence others. Be the bridge.",
-    links: [{ title: 'AI_Self_Starter', url: 'https://ai-self-starter.vercel.app/' }],
+    links: [{ title: 'Cursor Meetups', url: 'https://cursor-meets-up.vercel.app/' }],
     author: 'Jianan Huang',
     authorAvatar: AUTHOR_AVATAR
   },

@@ -21,6 +21,11 @@ export interface Post {
   links?: { title: string; url: string }[]; // Optional links for projects
   qaItems?: { topic: string; questions: string[] }[]; // Updated structure: Topic + Parallel Questions
   characteristics?: { label: string; description: string }[]; // New field for Home page expandable content
+  downloadableTemplate?: { // New field for Step 5
+    title: string;
+    filename: string;
+    content: string;
+  };
 }
 
 export type Category = 'Intro' | 'All' | 'PM Architecture' | 'AI Cultivation' | 'Q&A';
