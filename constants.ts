@@ -54,7 +54,7 @@ export const MOCK_POSTS: Post[] = [
 针对 **A/B** 项目组建：
 
 *   **A**：工程师思维严谨，端到端交付能力强，适合核心功能模块；
-*   **B**：项目理解能力强，UI设计很有SSME审美，适合前端交互优化；
+*   **B**：项目理解能力强，UI设计很有企业级审美，适合前端交互优化；
 *   **关键动作**：成为对方频道的人，让团队对我形成靠谱、执行力强、沟通顺畅的第一印象。
 
 ### 实际效果
@@ -93,7 +93,7 @@ export const MOCK_POSTS: Post[] = [
     *   *价值*: 痛点→解决方案→角色分配的完整链路
 *   **CH4**: Evals/Qulity Gate定义
     *   *价值*: 项目启动就建立质量意识（CMDE评估准备）
-*   **CH5-7**: 任务清单 + 会议记录模板 + 权限开放（SiemensCode、SharePoint、Team chat）
+*   **CH5-7**: 任务清单 + 会议记录模板 + 权限开放（S_Code、SharePoint、Team chat）
     *   *价值*: 执行层面的操作规范
 
 **3. 带着项目原型和开发沟通**
@@ -105,7 +105,7 @@ export const MOCK_POSTS: Post[] = [
 **4. 队内维护信息尽早确立**
 - 公共Teams频道、ShareFolder
 - 通用模块架构文档
-- SiemensCode小组（输入输出文档、API Json包）
+- Gitlab Code小组（输入输出文档、API Json包）
 - 固定的周会/双周会节奏
 
 ### 实际效果
