@@ -98,8 +98,6 @@ export const MOCK_POSTS: Post[] = [
 
 **3. 带着项目原型和开发沟通**
 - Hand包、Brain包可以先写一个带着业务流程的框架给到开发。直接定义清楚input、output流程、格式和我期待的颗粒度。这样能帮助开发专注功能的开发与性能的优化。
-![Hand Prototype](assets/Hand Prototype.png)
-![Brian Prototype](assets/Brain Prototype.png)
 
 
 **4. 队内维护信息尽早确立**
@@ -117,9 +115,9 @@ export const MOCK_POSTS: Post[] = [
       { url: 'assets/Hand Prototype.png', caption: 'Hand Prototype' },
       { url: 'assets/Brain Prototype.png', caption: 'Brain Prototype' }
     ],
-    takeaway: "写AI和人都看得懂的文档。PRD不是给PM自己看的，是给全栈看的（人+AI）。用把业务逻辑、输入输入、项目预期和优化空间写Prototype。减少开发理解需求的摩擦力。",
+    takeaway: "- 写人和工具都看得懂的文档，一文一功能、一页一需求。\n- 用把业务逻辑、输入输入、项目预期和优化空间写Prototype，减少开发理解需求的摩擦力。",
     tradeoff: "- 如果需求高度不确定（变更率>50%），重文档反而是负担\n- 如果团队是成熟团队（合作过3次以上），trust/Project experiences > documentation",
-    reflection: "反思复盘\n- 并行开发而非端到端交付，注意收敛自己pushy的紧凑感\n- 做好没有人看文档的准备，意识到解释澄清在项目初期的重要性\n- 时间资源充分的情况下，不会依赖翻译官的角色，直接请三方workshop明确需求",
+    reflection: "反思复盘\n- 并行开发而非端到端交付，注意收敛自己pushy的紧凑感\n- 明确PM交叉属性的价值，而非大包大揽的兼顾：Brain层的框架搭建是可行高效的，但一定要给开发留独立完整的设计空间。\n- 做好没有人看文档的准备，意识到解释澄清在项目初期的重要性.",
     author: 'Jianan Huang',
     authorAvatar: AUTHOR_AVATAR
   },
@@ -161,7 +159,7 @@ export const MOCK_POSTS: Post[] = [
       { url: 'assets/会议后action memo.png', caption: '会议后action memo' }
     ],
     takeaway: "正确认识PoC会议：要利用宝贵的PoC会议时间来减少/解决模糊性。会前能被整理的清晰的信息不应该占用会议时间现场生成。\n\n最小化记录和誊写工作：只准备一个输入源，但是设想好输出源的不同工具搭配。比如从设计到开发到present：可以直接md-->xml/html-->Slides",
-    reflection: "反思复盘\n- 明确PM交叉属性的价值，而非大包大揽的兼顾：Brain层的框架搭建是可行高效的，但重复劳动没必要，一定要给开发留独立完整的设计空间。\n- 确保成员对模块的ownership：边界太清晰会遏制其他解法的可能性，Brainstorming类会议就不完全适用。",
+    reflection: "反思复盘\n- 确保成员对模块的ownership：边界太清晰会遏制其他解法的可能性，Brainstorming类会议就不完全适用。",
     author: 'Jianan Huang',
     authorAvatar: AUTHOR_AVATAR
   },
@@ -266,7 +264,7 @@ export const MOCK_POSTS: Post[] = [
       content: `# PM 一键复制包
 
 > * Vibe-First: 爽感即正义 (Optimization for Delight).
-> * Bilingual Docs: 写人机共读的文档 (Docs for Humans & AI).
+> * Bilingual Docs: 写人机共读的文档 (Docs for Humans & Tool).
 > * Composable Skills: 管理即代码 (Management as Code).
 > * Bounded Autonomy: 骨架锁死，开发自由 (Framework + Creativity).
 > * Entropy Reduction: 会议只处理模糊信息 (Meetings for Alignment only).
