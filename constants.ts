@@ -117,7 +117,7 @@ export const MOCK_POSTS: Post[] = [
     ],
     takeaway: "- 写人和工具都看得懂的文档，一文一功能、一页一需求。\n- 用把业务逻辑、输入输入、项目预期和优化空间写Prototype，减少开发理解需求的摩擦力。",
     tradeoff: "- 如果需求高度不确定（变更率>50%），重文档反而是负担\n- 如果团队是成熟团队（合作过3次以上），trust/Project experiences > documentation",
-    reflection: "反思复盘\n- 并行开发而非端到端交付，注意收敛自己pushy的紧凑感\n- 明确PM交叉属性的价值，而非大包大揽的兼顾：Brain层的框架搭建是可行高效的，但一定要给开发留独立完整的设计空间。\n- 做好没有人看文档的准备，意识到解释澄清在项目初期的重要性.",
+    reflection: "反思复盘\n- 并行开发而非端到端交付，注意收敛自己pushy的紧凑感。\n- 明确PM交叉属性的价值，而非大包大揽的兼顾：Brain层的框架搭建是可行高效的，但一定要给开发留独立完整的设计空间。\n- 做好没有人看文档的准备，意识到解释澄清在项目初期的重要性。",
     author: 'Jianan Huang',
     authorAvatar: AUTHOR_AVATAR
   },
@@ -197,7 +197,7 @@ export const MOCK_POSTS: Post[] = [
        { url: 'assets/Change.png', caption: 'Change.md' },
        { url: 'assets/image.png', caption: 'Communication' }
     ],
-    takeaway: "PM要站在user视角看代码，站在开发视角看需求。",
+    takeaway: "PM要站在user视角看代码逻辑，站在开发视角看需求。",
     tradeoff: "但是如果有更好/更资深的资源，PM不要主动承担翻译，而是引入翻译（请tech lead帮忙）",
     author: 'Jianan Huang',
     authorAvatar: AUTHOR_AVATAR
@@ -226,7 +226,7 @@ export const MOCK_POSTS: Post[] = [
 - 团队感受到被关注但不被micromanage`,
     images: [], 
     takeaway: "不是盯人，是盯系统健康度。用commit频率等指标来观察系统开发速度。",
-    tradeoff: "但是如果团队稳定性高，过度容错会有不信任感。",
+    tradeoff: "- 但是如果团队稳定性高，过度容错会有不信任感。\n- ",
     author: 'Jianan Huang',
     authorAvatar: AUTHOR_AVATAR
   },
