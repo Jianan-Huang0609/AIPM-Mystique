@@ -114,9 +114,9 @@ export const MOCK_POSTS: Post[] = [
       { url: 'assets/CER Function.png', caption: '章节理解与定义' },
 	  { url: 'assets/项目管理文件.png', caption: '项目管理文件' },
       { url: 'assets/Hand Prototype.png', caption: 'Hand Prototype' },
-      { url: 'assets/Brain Prototype.png', caption: 'Brain Prototype' }
+      { url: 'assets/Brain Prototype.png', caption: 'Brain Prototype' },
 	  { url: 'assets/可视化呈现.png', caption: 'Visualization' }
-    ],
+   ],
     takeaway: "- 写人和工具都看得懂的文档，一文一功能、一页一需求。\n- 用把业务逻辑、输入输入、项目预期和优化空间写Prototype，减少开发理解需求的摩擦力。",
     tradeoff: "- 如果需求高度不确定（变更率>50%），重文档反而是负担\n- 如果团队是成熟团队（合作过3次以上），trust/Project experiences > documentation",
     reflection: "反思复盘\n- 并行开发而非端到端交付，注意收敛自己pushy的紧凑感。\n- 明确PM交叉属性的价值，而非大包大揽的兼顾：Brain层的框架搭建是可行高效的，但一定要给开发留独立完整的设计空间。\n- 做好没有人看文档的准备，意识到解释澄清在项目初期的重要性。",
