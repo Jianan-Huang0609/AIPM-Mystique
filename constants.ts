@@ -196,7 +196,7 @@ export const MOCK_POSTS: Post[] = [
     images: [
        { url: 'assets/三层逻辑.png', caption: '业务端的三层逻辑' },
        { url: 'assets/Change.png', caption: 'Change.md' },
-       { url: 'assets/image.png', caption: 'Communication' }
+       { url: 'assets/Communication.png', caption: 'Communication' }
     ],
     takeaway: "PM要站在user视角看代码逻辑，站在开发视角看需求。",
     tradeoff: "但是如果有更好/更资深的资源，PM不要主动承担翻译，而是引入翻译（请tech lead帮忙）",
@@ -264,7 +264,7 @@ export const MOCK_POSTS: Post[] = [
       filename: "PM管理包_HJN.md",
       content: `# PM 一键复制包
 
-<模块根>/
+<模板根目录>/
 ├── README.md                 # 本模板（层级说明 + 使用/复用指南）
 ├── 01_需求定义/             # 需求层：需求说明、用户故事、验收标准
 ├── 02_工作流总结/           # 流程层：步骤、协作流程、端到端示例
