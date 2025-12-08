@@ -359,7 +359,7 @@ export const MOCK_POSTS: Post[] = [
 	1. 优化项表（名称/概述/收益/风险/优先级）
 	2. 技术选型建议（工具/库/平台）
 	3. 采纳决策流程
-- 示例字段：OCR 优化（DeepSeek-OCR）→ 提高解析精度但增加成本；优先级：中。
+- 示例字段：OCR 优化（DeepSeek-OCR）→ 提高解析精度但增加成本；优先级：中。`
     },
     author: 'Jianan Huang',
     authorAvatar: AUTHOR_AVATAR
