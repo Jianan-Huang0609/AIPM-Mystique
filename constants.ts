@@ -112,6 +112,7 @@ export const MOCK_POSTS: Post[] = [
 - 文档既是人类说明书也是AI prompt，两端通用。`,
     images: [
       { url: 'assets/CER Function.png', caption: '章节理解与定义' },
+	  { url: 'assets/项目管理文件.png', caption: '项目管理文件' },
       { url: 'assets/Hand Prototype.png', caption: 'Hand Prototype' },
       { url: 'assets/Brain Prototype.png', caption: 'Brain Prototype' }
     ],
