@@ -115,6 +115,7 @@ export const MOCK_POSTS: Post[] = [
 	  { url: 'assets/项目管理文件.png', caption: '项目管理文件' },
       { url: 'assets/Hand Prototype.png', caption: 'Hand Prototype' },
       { url: 'assets/Brain Prototype.png', caption: 'Brain Prototype' }
+	  { url: 'assets/可视化呈现.png', caption: 'Visualization' }
     ],
     takeaway: "- 写人和工具都看得懂的文档，一文一功能、一页一需求。\n- 用把业务逻辑、输入输入、项目预期和优化空间写Prototype，减少开发理解需求的摩擦力。",
     tradeoff: "- 如果需求高度不确定（变更率>50%），重文档反而是负担\n- 如果团队是成熟团队（合作过3次以上），trust/Project experiences > documentation",
