@@ -114,7 +114,7 @@ export const MOCK_POSTS: Post[] = [
       { url: 'assets/CER Function.png', caption: '章节理解与定义' },
 	  { url: 'assets/项目管理文件.png', caption: '项目管理文件' },
       { url: 'assets/Hand Prototype.png', caption: 'Hand Prototype' },
-      { url: 'assets/Brain Prototype.png', caption: 'Brain Prototype' },T
+      { url: 'assets/Brain Prototype.png', caption: 'Brain Prototype' },
 	  { url: 'assets/可视化呈现.png', caption: 'Visualization' }
    ],
     takeaway: "- 把业务逻辑、输入输入、功能预期和优化空间写成具体Prototype，减少开发理解需求的摩擦力。",
