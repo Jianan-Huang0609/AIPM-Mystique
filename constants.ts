@@ -103,8 +103,7 @@ export const MOCK_POSTS: Post[] = [
 
 **4. 队内维护信息尽早确立**
 - 公共Teams频道、ShareFolder
-- 通用模块架构文档
-- Gitlab Code小组（输入输出文档、API Json包）
+- Gitlab Code小组
 - 固定的周会/双周会节奏
 
 ### 实际效果
