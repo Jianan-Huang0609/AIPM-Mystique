@@ -153,7 +153,7 @@ export const MOCK_POSTS: Post[] = [
 
 
 ### 实际效果
-- 宝贵的会议时间聚焦于不确定问题的解决，而非公共信息的传递， 比如来自专家的feedback，来自大家的纠错和优化，来自模块包交互之间的需求。
+- 宝贵的会议时间聚焦于不确定问题的解决，和非公共信息的传递， 比如来自专家的feedback，来自大家的纠错和优化，来自模块包交互之间的需求。
 - 开发人员专注于核心功能，不被流程打扰。`,
     images: [
       { url: 'assets/会前讨论.png', caption: '会前讨论' },
@@ -173,7 +173,7 @@ export const MOCK_POSTS: Post[] = [
     category: 'PM Architecture',
     viewpoint: "PM是连接代码逻辑和业务逻辑的中间层，需要双向翻译并快速验证。",
     content: `### 底层逻辑
-业务反馈需求和痛点 → PM挖掘并设计产品功能与架构 → 带着原型去找开发落地功能 → 开发人员输出代码（Model Output）→ PM基于产品功能+业务逻辑打分 + 反馈给开发人员做定性Evals 
+业务反馈需求和痛点 → PM挖掘并设计产品功能与架构 → 带着原型去找开发落地功能 → 开发人员输出代码和Test Sample→ PM基于产品功能+业务逻辑打分 → 反馈给开发人员做进一步定性Evals 
 
 ### 实践案例
 
@@ -248,6 +248,7 @@ export const MOCK_POSTS: Post[] = [
 - 技术文档PRD化 → Copilot快速归纳/总结/审阅
 - 非敏感信息HTML → 第三方AI工具可视化生图
 - 项目timeline和决策树XML → draw图表自动生成并可编辑
+![AI外包可视化](../assets/可视化效果.png)
 
 **2. 经验蒸馏**
 - 提炼可复用的Skill包（如会议三段式流程）
