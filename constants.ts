@@ -173,7 +173,8 @@ export const MOCK_POSTS: Post[] = [
     category: 'PM Architecture',
     viewpoint: "PM是连接代码逻辑和业务逻辑的中间层，需要双向翻译并快速验证。",
     content: `### 底层逻辑
-业务反馈需求和痛点 → PM挖掘并设计产品功能与架构 → 带着原型去找开发落地功能 → 开发人员输出代码和Test Sample→ PM基于产品功能+业务逻辑打分 → 反馈给开发人员做进一步定性Evals 
+开发人员输出代码和Test Sample→ PM基于产品功能+业务逻辑打分 → 反馈给开发人员做进一步定性Evals → 优化方向判断是否执行并技术探针看能否有资源执行 →汇总给开发迭代优化功能。
+![快速验证，双向翻译](../双向翻译.png)
 
 ### 实践案例
 
@@ -192,14 +193,13 @@ export const MOCK_POSTS: Post[] = [
 
 **✅ 实际效果**
 - 开发人员的输出与真实业务价值快速对齐
-- 技术探针验证可行性后再投入开发资源
-- 减少做了才发现不对的返工`,
+- 技术探针验证可行性后再投入开发资源`,
     images: [
        { url: 'assets/三层逻辑.png', caption: '业务端的三层逻辑' },
        { url: 'assets/Change.png', caption: 'Change.md' },
        { url: 'assets/Communication.png', caption: 'Communication' }
     ],
-    takeaway: "PM要站在user视角看代码逻辑，站在开发视角看需求。",
+    takeaway: "PM要站在user视角看代码逻辑，站在开发视角看功能实现成本。",
     tradeoff: "但是如果有更好/更资深的资源，PM不要主动承担翻译，而是引入翻译（请tech lead帮忙）",
     author: 'Jianan Huang',
     authorAvatar: AUTHOR_AVATAR
