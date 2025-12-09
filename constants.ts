@@ -173,8 +173,11 @@ export const MOCK_POSTS: Post[] = [
     category: 'PM Architecture',
     viewpoint: "PM是连接代码逻辑和业务逻辑的中间层，需要双向翻译并快速验证。",
     content: `### 底层逻辑
-循环的快速执行与准确传递：专家-定性打分；PM-以效果＋资源判断执行；开发-功能落地
-![快速验证，双向翻译](../assets/双向翻译.png)
+- 如何实现专家评测（目标）与开发实现（功能）之间的快速验证与精准执行。
+<p align="center">
+  <img src="../assets/双向箭头.png" width="360"/>
+</p>
+
 
 ### 实践案例
 
