@@ -230,7 +230,7 @@ export const MOCK_POSTS: Post[] = [
 - 团队感受到被关注但不被micromanage`,
     images: [], 
     takeaway: "不是盯人，是盯系统健康度。用commit频率等指标来观察系统开发速度。",
-    tradeoff: "- 但是如果团队稳定性高，过度容错会有不信任感。\n- ",
+    tradeoff: "- 但是如果团队稳定性高，过度容错没必要。",
     author: 'Jianan Huang',
     authorAvatar: AUTHOR_AVATAR
   },
