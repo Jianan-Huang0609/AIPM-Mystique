@@ -195,7 +195,7 @@ export const MOCK_POSTS: Post[] = [
 - 开发人员的输出与真实业务价值快速对齐
 - 技术探针验证可行性后再投入开发资源`,
     images: [
-        { url: 'assets/双向翻译', caption: '双边翻译' },
+        { url: 'assets/双向翻译.png', caption: '双边翻译' },
 		{ url: 'assets/三层逻辑.png', caption: '业务端的三层逻辑' },
         { url: 'assets/Change.png', caption: 'Change.md' },
         { url: 'assets/Communication.png', caption: 'Communication' },
