@@ -174,14 +174,7 @@ export const MOCK_POSTS: Post[] = [
     viewpoint: "PM是连接代码逻辑和业务逻辑的中间层，需要双向翻译并快速验证。",
     content: `### 底层逻辑
 - 如何实现专家评测（目标）与开发实现（功能）之间的快速验证与精准执行。
-
-export const content = `
-<p style="text-align:center;">
-  <img src="../assets/双向箭头.png" width="360" />
-</p>
-`;
-
-
+![AI外包可视化](../assets/可视化效果.png)
 
 ### 实践案例
 
