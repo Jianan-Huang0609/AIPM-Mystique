@@ -149,7 +149,7 @@ export const MOCK_POSTS: Post[] = [
    - 更新共享文档和代码库
 
 ### 实际效果
-- 宝贵的会议时间聚焦于不确定问题的解决，而非公共信息的传递， 比如来自专家的feedback，来自大家的纠错和优化，来自模块包交互之间的需求。
+- 宝贵的会议时间聚焦于不确定问题的解决，和非公共信息的传递， 比如来自专家的feedback，来自大家的纠错和优化，来自模块包交互之间的需求。
 - 开发人员专注于核心功能，不被流程打扰。`,
     images: [
       { url: '/assets/会前讨论.png', caption: '会前讨论' },
@@ -195,7 +195,7 @@ export const MOCK_POSTS: Post[] = [
        { url: '/assets/Change.png', caption: 'Change.md' },
        { url: '/assets/Communication.png', caption: 'Communication' }
     ],
-    takeaway: "PM要站在user视角看代码，站在开发视角看需求。",
+    takeaway: "PM要站在user视角看代码逻辑，站在开发视角看需求。",
     tradeoff: "但是如果有更好/更资深的资源，PM不要主动承担翻译，而是引入翻译（请tech lead帮忙）",
     author: 'Jianan Huang',
     authorAvatar: AUTHOR_AVATAR
@@ -405,3 +405,4 @@ export const MOCK_POSTS: Post[] = [
     authorAvatar: AUTHOR_AVATAR
   }
 ];
+
