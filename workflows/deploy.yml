@@ -1,0 +1,32 @@
+name: Deploy Static to COS
+
+on:
+  push:
+    branches: [main]   # 可根据自己主分支改名
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 1. 拉代码
+        uses: actions/checkout@v4
+
+      - name: 2. 装 Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: 3. 装依赖 & 构建
+        run: |
+          npm ci
+          npm run build
+
+      - name: 4. 清空 COS 并上传新文件
+        uses: zkqiang/tencent-cos-action@v1
+        with:
+          args: delete -r -f / && upload -r ./dist/ /
+          secret_id: ${{ secrets.TENCENT_CLOUD_SECRET_ID }}
+          secret_key: ${{ secrets.TENCENT_CLOUD_SECRET_KEY }}
+          bucket: aipm-1391447236   # ← 改成你自己的存储桶名称
+          region: ap-hongkong
